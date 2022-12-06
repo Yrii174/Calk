@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <input id="val1" />
+
+<div id="operator_btns">
+  <button id="plus" class="operator" onclick="operator='+'">+</button>
+  <button id="minus" class="operator" onclick="operator='-'">-</button>
+  <button id="times" class="operator" onclick="operator='*'">*</button>
+  <button id="divide" class="operator" onclick="operator='/'">/</button>
+</div>
+
+<input id="val2" />
+
+<button onclick="calc()">=</button>
+
+<p id="result"></p>
+
+<script>
+  var operator; 
+  function calc() {
+    var result;
+    var val1 = Number(document.getElementById("val1").value);
+    var val2 = Number(document.getElementById("val2").value);
+    switch (operator) {
+      case '+':
+        result = val1 + val2;
+        break;
+      case '-':
+        result = val1 - val2;
+        break;
+      case '*':
+        result = val1 * val2;
+        break;
+      case '/':
+        if (val2) {
+          result = val1 / val2;
+        } else {
+          result = 'деление на ноль';
+        }
+        break;
+      default:
+        result = 'выберите операцию';
+    }
+
+    document.getElementById("result").innerHTML = result;
+  }
+</script>
+</body>
+</html>
